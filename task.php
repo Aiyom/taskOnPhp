@@ -16,29 +16,21 @@ class Actions
 //    convert file to array
     function numberAsFile($argv){
 
-        // checking symbol or letter
-        $arrSymbol = array('+', '-', '*', '/');
-        $badge = '';
-        foreach ($arrSymbol as $value){
-            if ($value == $argv[2]) {
-                $badge = $value;
-            }
-        }
 //        getting number on array and performs an operation
         foreach( $this->callFile($argv) as $stringFile ){
            $list = preg_split('/ /', $stringFile);
            for ($i=0; $i<=count($list); $i+=2)
             {
-                if($badge === '+'){
+                if($argv[2] === '+'){
                     $arr[] = $list[$i] + $list[$i + 1];
                 }
-                elseif ($badge === '-') {
+                elseif ($argv[2] === '-') {
                     $arr[] = $list[$i] - $list[$i + 1];
                 }
-                elseif ($badge === '*') {
+                elseif ($argv[2] === '*') {
                     $arr[] = $list[$i] * $list[$i + 1];
                 }
-                elseif ($badge === '/') {
+                elseif ($argv[2] === '/') {
                     $arr[] = $list[$i] / $list[$i + 1];
                 }
                break;
